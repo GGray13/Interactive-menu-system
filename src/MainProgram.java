@@ -71,7 +71,7 @@ public class MainProgram {
     private void readFile() throws IOException {
         Scanner inFile = new Scanner(new FileReader("src//input.txt"));
 
-        //Reads in total number of activities, creates activity name and adds event capacity
+        //Reads in total number of activities, creates activity name and adds capacity
         int totalActivities = Integer.parseInt(inFile.nextLine());
         for (int i = 0; i < totalActivities; i++) {
             String activityName = inFile.nextLine();
@@ -175,7 +175,7 @@ public class MainProgram {
 
         boolean valid = false;
         while (!valid) {
-            System.out.println("Select the event you would like to buy.  To quit, enter 'f'");
+            System.out.println("Select the activity you would like to buy.  To quit, enter 'f'");
 
             String input = in.nextLine();
 
@@ -187,7 +187,7 @@ public class MainProgram {
                     {                                      //...matches the correct activity name
                         activityPicked = a;
                         valid = true;
-                        System.out.println("Event correctly selected.");
+                        System.out.println("Activity correctly selected.");
                     }
                 }
             }
@@ -339,7 +339,7 @@ public class MainProgram {
         }
         if (activityIndex == -1)
         {
-            System.out.println("No purchased tickets found for the selected event");
+            System.out.println("No purchased tickets found for the selected activity");
             return;
         }
 
