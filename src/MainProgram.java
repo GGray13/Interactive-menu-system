@@ -337,7 +337,48 @@ public class MainProgram {
         }
         if (activityIndex == -1)
         {
-            System.out.println();
+            System.out.println("No purchased tickets found for the selected event");
+            return;
+        }
+
+        int ticketsBought = c.getTicketsBought().get(activityIndex).getTicketsBought();
+
+        boolean valid = false;
+        while (!valid)
+        {
+            try {
+                System.out.println("Enter the amount of activity tickets you would you like to return: " +
+                        "or enter 'f' to quit returns");
+
+                String input = in.nextLine();
+                if (input.equals("f"))
+                {
+                    valid = true;
+                }
+                else
+                {
+                    int ticketsReturned = Integer.parseInt(input);
+                    if (ticketsReturned == ticketsBought)
+                    {
+                        c.getTicketsBought().remove(activityIndex);
+                        a.increaseTickets(ticketsReturned);
+                        System.out.println("Activity tickets have been successfully returned");
+                        valid = true;
+                    } else if (ticketsReturned >= 1 && ticketsReturned<ticketsBought)
+                    {
+                           c.getTicketsBought().get(activityIndex).setTicketsBought(ticketsBought - ticketsReturned);
+                           a.increaseTickets(ticketsReturned);
+                           System.out.println("Activity tickets have been successfully returned");
+                           valid = true;
+                    }
+                    else
+                        System.out.println("Please enter the correct amount of activity tickets to return");
+                }
+            }
+            catch (NumberFormatException e)
+            {
+                System.out.println("Please make sure the format is entered correctly.");
+            }
         }
     }
 
