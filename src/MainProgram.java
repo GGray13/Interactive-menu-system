@@ -55,14 +55,16 @@ public class MainProgram {
                         Activity activityPicked2 = ticketsBoughtAlready(customer2);
                         if (activityPicked2 != null)
                         {
-
+                            returnTickets(customer2, activityPicked2);
                         }
-
                     }
-
-
+                    break;
+                default:
+                    System.out.println("Wrong input entered! Please choose a correct letter from the menu.");
+                    break;
             }
         }
+        outFile.close();
     }
 
     //Reads in data from input file
