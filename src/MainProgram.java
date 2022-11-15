@@ -42,11 +42,22 @@ public class MainProgram {
                         Activity activityPicked = matchActivity(); //Matches activity name with input file
                         if (activityPicked != null) {
                             int pickedTickets = ticketQuantity(outFile, customer1, activityPicked);
-                            if (pickedTickets != -1)
-                            {
-                                buyTickets
+                            if (pickedTickets != -1) {
+                                buyTickets(customer1, activityPicked, pickedTickets);
                             }
                         }
+                    }
+                    break;
+                case "r": //Return tickets purchased methods
+                    Customer customer2 = matchCustomerName();
+                    if (customer2 != null)
+                    {
+                        Activity activityPicked2 = ticketsBoughtAlready(customer2);
+                        if (activityPicked2 != null)
+                        {
+
+                        }
+
                     }
 
 
@@ -64,7 +75,7 @@ public class MainProgram {
             String activityName = inFile.nextLine();
             int activityCapacity = Integer.parseInt(inFile.nextLine());
             Activity a = new Activity(activityName, activityCapacity);
-            activityList.add(e);
+            activityList.add(a);
         }
 
         //Reads in total number of customers and customer details
@@ -215,9 +226,7 @@ public class MainProgram {
                     ticketQuantity = -1;
 
                 }
-            }
-            catch(NumberFormatException e)
-            {
+            } catch (NumberFormatException e) {
                 System.out.println("Please type in the correct format");
             }
         }
@@ -225,33 +234,114 @@ public class MainProgram {
     }
 
 
-        private void printLetter(PrintWriter outFile, Customer c, Activity a)
-        {
-            outFile.println("Dear customer, apologies we do not have any tickets left" +
-                    "for your chosen activity.  Please choose another activity. Sorry!");
-        }
+    private void printLetter(PrintWriter outFile, Customer c, Activity a) {
+        outFile.println("Dear customer, apologies we do not have any tickets left" +
+                "for your chosen activity.  Please choose another activity. Sorry!");
+    }
 
 
-        private void buyTickets (Customer c, Activity a, int n)
-        {
-            for (int i = 0; i < c.getTicketsBought().size(); i++)
-            {
-                if (c.getTicketsBought().get(i).getActivity().equals(a))
-                {
-                    //increase the customer tickets bought
-                    c.getTicketsBought().get(i).setTicketsBought(c.getTicketsBought().get(i).getTicketsBought() + n);
+    private void buyTickets(Customer c, Activity a, int n) {
+        for (int i = 0; i < c.getTicketsBought().size(); i++) {
+            if (c.getTicketsBought().get(i).getActivity().equals(a)) {
+                //increase the customer tickets bought
+                c.getTicketsBought().get(i).setTicketsBought(c.getTicketsBought().get(i).getTicketsBought() + n);
 
-                    //Reduce the amount of tickets left for activity
-                    a.reduceAvailableTickets(n);
-                    System.out.println("Complete!  Customer has bought tickets for the chosen activity");
-                    return;
-                }
+                //Reduce the amount of tickets left for activity
+                a.reduceAvailableTickets(n);
+                System.out.println("Complete!  Customer has bought tickets for the chosen activity");
+                return;
             }
         }
+        // print error if customer is holding more than 3 tickets
+        if (c.getTicketsBought().size() == 3) {
+            System.out.println("Customer has reached the maximum of 3 tickets per customer");
+        }
+        else //reduce available tickets and confirm tickets are purchased.
+        {
+            a.reduceAvailableTickets(n);
+            TicketOffice ticketsBought = new TicketOffice(a, n);
+            c.addTicketsBought(ticketsBought);
+            System.out.println("Ticket confirmation.  You have booked tickets for your chosen activity!");
+        }
+    }
+
+    public Activity ticketsBoughtAlready (Customer c)
+    {
+        Scanner in = new Scanner(System.in);
+        if (c.getTicketsBought().size() == 0)
+        {
+            System.out.println("Customer has not bought any tickets");
+            return null;
+        }
+
+        Activity activityPicked = null;
+        boolean valid = false;
+        while(!valid)
+        {
+            System.out.println(c + " has tickets for: ");
+            for (int i = 0; i < c.getTicketsBought().size(); i++)
+            {
+                System.out.println(c.getTicketsBought().get(i).getActivity().toString() + " " +
+                        c.getTicketsBought().get(i).getTicketsBought() + " tickets bought" );
+            }
+
+            System.out.println("Enter the name of the activity you would like to return the ticket for." +
+                    "Enter 'f' to exit returns");
+
+            String input = in.nextLine();
+            if (input.equals("f"))
+            {
+                return null;
+            }
+            else
+            {
+                for (int i = 0; i < c.getTicketsBought().size(); i++)
+                {
+                    if (c.getTicketsBought().get(i).getActivity().toString().equals(input))
+                    {
+                        activityPicked = c.getTicketsBought().get(i).getActivity();
+                        valid = true;
+                    }
+                }
+            }
+
+            if (activityPicked == null)
+            {
+                for (Activity a : activityList)
+                {
+                    if (a.getActivityName().equals(input))
+                    {
+                        System.out.println("Customer does not have any activity tickets");
+                        break;
+                    }
+                }
+                System.out.println("Input is incorrect, please enter correct format.");
+            }
+        }
+        return activityPicked;
+    }
+
+    //Updates the Customer and activity when tickets are returned
+    private void returnTickets(Customer c, Activity a)
+    {
+        Scanner in = new Scanner(System.in);
+
+        int activityIndex = -1;
+
+        for (int i = 0; i < c.getTicketsBought().size(); i++)
+        {
+            if (c.getTicketsBought().get(i).getActivity().equals(a))
+            {
+                activityIndex = i;
+            }
+        }
+        if (activityIndex == -1)
+        {
+            System.out.println();
+        }
+    }
+
 }
-
-
-
 
 
 
