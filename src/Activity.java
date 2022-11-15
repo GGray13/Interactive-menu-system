@@ -2,7 +2,7 @@ import java.io.*;
 
 public class Activity implements Comparable<Activity>
 {
-    private String activityName;
+    private final String activityName;
     private int ticketsLeft;
 
     public Activity(String activityName, int ticketsLeft)
@@ -13,21 +13,20 @@ public class Activity implements Comparable<Activity>
 
     public int compareTo(Activity a)
     {
-        int compActivity = activityName.compareTo(a.activityName);
-        return compActivity;
+        return activityName.compareTo(a.activityName);
     }
-    public String GetActivityName()
+    public String getActivityName()
     {
         return activityName;
     }
-    public int GetTicketsLeft() {
+    public int getTicketsLeft() {
         return ticketsLeft;
     }
     public void reduceAvailableTickets(int n)
     {
         ticketsLeft = ticketsLeft - n;
     }
-    public void IncreaseTickets(int n)
+    public void increaseTickets(int n)
     {
         this.ticketsLeft = ticketsLeft + n;
     }

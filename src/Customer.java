@@ -1,42 +1,45 @@
-public class Customer implements Comparable<Customer>
-{
-    private String firstName;
+import java.util.ArrayList;
 
-    private String lastName;
+/**
+ * Purpose of this class is to store information on customers and their tickets bought
+ *
+ *  Reference:
+ *              Some methods inspired by Konrad Dabrowski's CSC8012 lecture slides.
+ */
+public class Customer implements Comparable<Customer> {
+    private final String firstName;
 
-    private SortedArrayList<TicketOffice> ticketsArray;
+    private final String lastName;
 
+    private final SortedArrayList<TicketOffice> ticketsArray;
 
+    public Customer(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.ticketsArray = new SortedArrayList<>();
+    }
 
-    private String activityBooked;
+    public void addTicketsBought(TicketOffice ticketsBought) {
+        this.ticketsArray.add(ticketsBought);
+    }
 
-    private int ticketsBought;
-
-    public Customer(String firstName, String lastName)
+    public ArrayList<TicketOffice> getTicketsBought()
     {
-        firstName = firstName;
-        lastName = lastName;
-        activityBooked = activityBooked;
-        ticketsBought = ticketsBought;
+        return this.ticketsArray;
     }
 
     @Override
-    public int compareTo(Customer c)
-    {
-        int fnCmp = firstName.compareTo(c.firstName);
-        if (fnCmp !=0) return fnCmp;
-        int lnCmp = lastName.compareTo(c.lastName);
-        if (lnCmp !=0) return lnCmp;
-        else return 0;
-    }
-
-    public String GetCustomerName()
+    public String toString()
     {
         return firstName + " " + lastName;
     }
 
-    public String GetActivityName()
-    {
-        return activityBooked;
+    @Override
+    public int compareTo(Customer c) {
+        int fnCmp = firstName.compareTo(c.firstName);
+        if (fnCmp != 0) return fnCmp;
+        int lnCmp = lastName.compareTo(c.lastName);
+        if (lnCmp != 0) return lnCmp;
+        else return 0;
     }
 }
