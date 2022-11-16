@@ -1,19 +1,20 @@
-import javax.accessibility.AccessibleAction;
 import java.io.*;
 import java.util.Scanner;
 
-/* Inspired by Konrads work, lecture 1 slides 31 -49 */
+/* Inspired by Dr Konrad Dabrowski's sport club example in
+* lecture 1 for CSC8012 module at Newcastle University.
+* Modified by Gregor Gray November 2022. */
 
 public class MainProgram {
     SortedArrayList<Activity> activityList = new SortedArrayList<>();
     SortedArrayList<Customer> customerList = new SortedArrayList<>();
 
     public static void main(String[] args) throws FileNotFoundException {
-        new MainProgram().setup();
+        new MainProgram().setup(); //runs main program
     }
 
     private void setup() throws FileNotFoundException {
-
+        //Prints out file to letters
         PrintWriter outFile = new PrintWriter("src//letters.txt");
 
         try {
@@ -22,7 +23,7 @@ public class MainProgram {
             e.printStackTrace();
         }
 
-        //Switch statement
+        //Switch statement for interactive menu
         boolean done = false;
         while (!done) {
             switch (printMenu()) {
@@ -30,10 +31,10 @@ public class MainProgram {
                     System.out.println("Program closing... Bye!");
                     done = true;
                     break;
-                case "a":
+                case "a": //run the activityinfo method
                     activityInfo();
                     break;
-                case "c":
+                case "c": //run the customerInfo method
                     customerInfo();
                     break;
                 case "t":  //ticket purchasing methods
@@ -42,7 +43,7 @@ public class MainProgram {
                         Activity activityPicked = matchActivity(); //Matches activity name with input file
                         if (activityPicked != null) {
                             int pickedTickets = ticketQuantity(outFile, customer1, activityPicked);
-                            if (pickedTickets != -1) {
+                            if (pickedTickets != -1) { //validates ticket purchasing
                                 buyTickets(customer1, activityPicked, pickedTickets);
                             }
                         }
@@ -54,7 +55,7 @@ public class MainProgram {
                     {
                         Activity activityPicked2 = ticketsBoughtAlready(customer2);
                         if (activityPicked2 != null)
-                        {
+                        { //validates the tickets returned is valid
                             returnTickets(customer2, activityPicked2);
                         }
                     }
@@ -75,9 +76,9 @@ public class MainProgram {
         int totalActivities = Integer.parseInt(inFile.nextLine());
         for (int i = 0; i < totalActivities; i++) {
             String activityName = inFile.nextLine();
-            int activityCapacity = Integer.parseInt(inFile.nextLine());
+            int activityCapacity = Integer.parseInt(inFile.nextLine());//
             Activity a = new Activity(activityName, activityCapacity);
-            activityList.add(a);
+            activityList.add(a); //Adds read in activity to array
         }
 
         //Reads in total number of customers and customer details
@@ -85,12 +86,12 @@ public class MainProgram {
         for (int i = 0; i < totalCustomers; i++) {
             String[] elements = inFile.nextLine().split(" ");
             Customer c = new Customer(elements[0], elements[1]);
-            customerList.add(c);
+            customerList.add(c); //Adds customers to array
         }
 
     }
 
-    //Prints menu
+    //Prints interactive menu
     private String printMenu() {
         Scanner in = new Scanner(System.in);
 
@@ -125,7 +126,7 @@ public class MainProgram {
             System.out.print(customer.toString() + ", ");
             if (customer.getTicketsBought().size() > 0) {
                 for (int i = 0; i < customer.getTicketsBought().size(); i++) {
-                    System.out.println(customer.getTicketsBought().get(i).toString() + ".");
+                    System.out.println(customer.getTicketsBought().get(i).toString() + ".");//autoboxing
                 }
             } else {
                 System.out.println("no ticket purchases available.");
@@ -136,7 +137,7 @@ public class MainProgram {
     //Matches customer name and makes sure it is valid
     public Customer matchCustomerName() {
         Scanner in = new Scanner(System.in); //New scanner to take user input of name
-        Customer purchasingCustomer = null; //New purchasing customer set up
+        Customer purchasingCustomer = null; //New customer set up
 
         boolean valid = false;
         while (!valid) {
@@ -144,9 +145,9 @@ public class MainProgram {
                 System.out.println("Input purchasing customer name here.  To quit, enter 'f'");
                 String input = in.nextLine();
                 if (input.equals("f")) {
-                    valid = true;
+                    valid = true; //quit if 'f' is entered by user
                 } else {
-                    String[] names = input.split(" ");
+                    String[] names = input.split(" "); //creates array for storing names
                     Customer customerInput = new Customer(names[0], names[1]);
                     for (int i = 0; i < customerList.size(); i++) {
                         if (customerInput.compareTo(customerList.get(i)) == 0) {
@@ -184,7 +185,7 @@ public class MainProgram {
             } else {
                 for (Activity a : activityList) {
                     if (a.getActivityName().equals(input)) // Returns activity selected if input...
-                    {                                      //...matches the correct activity name
+                    {                                      //...matches the activity name in array
                         activityPicked = a;
                         valid = true;
                         System.out.println("Activity correctly selected.");
@@ -198,6 +199,9 @@ public class MainProgram {
         return activityPicked;
     }
 
+    /*Method for getting the amount of tickets purchased.
+    Outputs text file if there's not enough tickets available
+     */
     public int ticketQuantity(PrintWriter outFile, Customer purchasingCustomer, Activity activityPicked) {
         Scanner in = new Scanner(System.in);
 
@@ -217,7 +221,7 @@ public class MainProgram {
                     ticketQuantity = Integer.parseInt(input);
                 }
                 if (activityPicked.getTicketsLeft() >= ticketQuantity) {
-                    valid = true;
+                    valid = true; //allow ticket purchase if equal or less than available tickets
                 } else {
                     System.out.println("Sorry there are not enough ticket left for " +
                             activityPicked.getActivityName());
