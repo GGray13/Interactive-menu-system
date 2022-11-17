@@ -4,7 +4,7 @@ import java.util.ArrayList;
  * Purpose of this class is to store information on customers and their tickets bought
  *
  *  Reference:
- *              Some methods inspired by Konrad Dabrowski's CSC8012 lecture slides.
+ *              Methods inspired by Dr Konrad Dabrowski's CSC8012 lecture slides.
  */
 public class Customer implements Comparable<Customer> {
     private final String firstName;

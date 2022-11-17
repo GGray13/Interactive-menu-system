@@ -286,7 +286,7 @@ public class MainProgram {
         {
             System.out.println(c + " has tickets for: ");
             for (int i = 0; i < c.getTicketsBought().size(); i++)
-            {
+            { //Error in here somewhere
                 System.out.println(c.getTicketsBought().get(i).getActivity().toString() + " " +
                         c.getTicketsBought().get(i).getTicketsBought() + " tickets bought" );
             }

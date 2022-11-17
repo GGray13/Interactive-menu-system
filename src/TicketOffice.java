@@ -3,23 +3,17 @@ public class TicketOffice implements Comparable<TicketOffice> {
     private Activity activity;
     private int ticketsBought;
 
-    public TicketOffice(Activity activity, int ticketsBought) {
+    public TicketOffice(Activity activity, int ticketsBought)
+    {
+        this.activity = activity;
+        this.ticketsBought = ticketsBought;
+
     }
 
-    //Getters and setters
-    public Activity getActivity()
-    {
-        return activity;
+    @Override
+    public String toString() {
+        return ticketsBought + "tickets bought for " + activity;
     }
-    public int getTicketsBought()
-    {
-        return ticketsBought;
-    }
-    public void setTicketsBought(int i)
-    {
-        ticketsBought = i;
-    }
-
 
     public int compareTo(TicketOffice t) {
         int activityOrder = activity.compareTo(t.getActivity());
@@ -28,9 +22,17 @@ public class TicketOffice implements Comparable<TicketOffice> {
         return 0;
     }
 
+    //Getters and setters
+    public Activity getActivity() {
+        return this.activity;
+    }
 
-    @Override
-    public String toString() {
-        return ticketsBought + "tickets bought for " + activity;
+    public int getTicketsBought() {
+        return this.ticketsBought;
+    }
+
+    public void setTicketsBought(int i) {
+        this.ticketsBought = i;
     }
 }
+
