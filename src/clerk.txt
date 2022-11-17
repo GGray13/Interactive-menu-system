@@ -1,0 +1,242 @@
+/Users/gregorgray/Library/Java/JavaVirtualMachines/openjdk-19/Contents/Home/bin/java -javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=56031:/Applications/IntelliJ IDEA.app/Contents/bin -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath /Users/gregorgray/IdeaProjects/CSC8012summative_coursework/out/production/CSC8012summative_coursework MainProgram
+---------------------------------------
+HOLIDAY RESORT MENU
+f - to finish running the program.
+a - to display on the screen information about all the activities.
+c - to display on the screen information about all the customers.
+t - to update the stored data when tickets are bought by one of the registered customers.
+r - to update the stored data when a registered customer cancels tickets for a booking.
+---------------------------------------
+Type a letter and press enter
+a
+See information about all available activities below:
+Activity= Bowling. Available tickets: 8
+Activity= Cycling. Available tickets: 10
+Activity= Football. Available tickets: 22
+Activity= Hiking. Available tickets: 4
+Activity= Sailing. Available tickets: 3
+Activity= Table Tennis. Available tickets: 4
+---------------------------------------
+HOLIDAY RESORT MENU
+f - to finish running the program.
+a - to display on the screen information about all the activities.
+c - to display on the screen information about all the customers.
+t - to update the stored data when tickets are bought by one of the registered customers.
+r - to update the stored data when a registered customer cancels tickets for a booking.
+---------------------------------------
+Type a letter and press enter
+c
+
+Here is all the information about customers and what tickets they have bought.
+Anna Smith, no ticket purchases available.
+Michael Smith, no ticket purchases available.
+Ted Jones, no ticket purchases available.
+---------------------------------------
+HOLIDAY RESORT MENU
+f - to finish running the program.
+a - to display on the screen information about all the activities.
+c - to display on the screen information about all the customers.
+t - to update the stored data when tickets are bought by one of the registered customers.
+r - to update the stored data when a registered customer cancels tickets for a booking.
+---------------------------------------
+Type a letter and press enter
+1
+Wrong input entered! Please choose a correct letter from the menu.
+---------------------------------------
+HOLIDAY RESORT MENU
+f - to finish running the program.
+a - to display on the screen information about all the activities.
+c - to display on the screen information about all the customers.
+t - to update the stored data when tickets are bought by one of the registered customers.
+r - to update the stored data when a registered customer cancels tickets for a booking.
+---------------------------------------
+Type a letter and press enter
+fa
+Wrong input entered! Please choose a correct letter from the menu.
+---------------------------------------
+HOLIDAY RESORT MENU
+f - to finish running the program.
+a - to display on the screen information about all the activities.
+c - to display on the screen information about all the customers.
+t - to update the stored data when tickets are bought by one of the registered customers.
+r - to update the stored data when a registered customer cancels tickets for a booking.
+---------------------------------------
+Type a letter and press enter
+F
+Wrong input entered! Please choose a correct letter from the menu.
+---------------------------------------
+HOLIDAY RESORT MENU
+f - to finish running the program.
+a - to display on the screen information about all the activities.
+c - to display on the screen information about all the customers.
+t - to update the stored data when tickets are bought by one of the registered customers.
+r - to update the stored data when a registered customer cancels tickets for a booking.
+---------------------------------------
+Type a letter and press enter
+t
+Input purchasing customer name here.  To quit, enter 'f'
+f
+---------------------------------------
+HOLIDAY RESORT MENU
+f - to finish running the program.
+a - to display on the screen information about all the activities.
+c - to display on the screen information about all the customers.
+t - to update the stored data when tickets are bought by one of the registered customers.
+r - to update the stored data when a registered customer cancels tickets for a booking.
+---------------------------------------
+Type a letter and press enter
+t
+Input purchasing customer name here.  To quit, enter 'f'
+osifen
+Please input the first and second name of customer.
+Input purchasing customer name here.  To quit, enter 'f'
+Ted
+Please input the first and second name of customer.
+Input purchasing customer name here.  To quit, enter 'f'
+Ted Jones
+Customer found on system.
+Select the activity you would like to buy.  To quit, enter 'f'
+1
+Activity does not match. Please enter correct activity name
+Select the activity you would like to buy.  To quit, enter 'f'
+jiebf
+Activity does not match. Please enter correct activity name
+Select the activity you would like to buy.  To quit, enter 'f'
+Table Tennis
+Activity correctly selected.
+How many tickets would you like to buy for Table Tennis?  Or enter 'f' to quit purchasing tickets
+5
+Sorry there are not enough ticket left for Table Tennis
+A letter has been printed informing the customer that there are no tickets available.
+Sorry, please try again!
+How many tickets would you like to buy for Table Tennis?  Or enter 'f' to quit purchasing tickets
+r
+Please type in the correct format
+How many tickets would you like to buy for Table Tennis?  Or enter 'f' to quit purchasing tickets
+3
+Ticket confirmation.  You have booked tickets for your chosen activity!
+---------------------------------------
+HOLIDAY RESORT MENU
+f - to finish running the program.
+a - to display on the screen information about all the activities.
+c - to display on the screen information about all the customers.
+t - to update the stored data when tickets are bought by one of the registered customers.
+r - to update the stored data when a registered customer cancels tickets for a booking.
+---------------------------------------
+Type a letter and press enter
+a
+See information about all available activities below:
+Activity= Bowling. Available tickets: 8
+Activity= Cycling. Available tickets: 10
+Activity= Football. Available tickets: 22
+Activity= Hiking. Available tickets: 4
+Activity= Sailing. Available tickets: 3
+Activity= Table Tennis. Available tickets: 1
+---------------------------------------
+HOLIDAY RESORT MENU
+f - to finish running the program.
+a - to display on the screen information about all the activities.
+c - to display on the screen information about all the customers.
+t - to update the stored data when tickets are bought by one of the registered customers.
+r - to update the stored data when a registered customer cancels tickets for a booking.
+---------------------------------------
+Type a letter and press enter
+c
+
+Here is all the information about customers and what tickets they have bought.
+Anna Smith, no ticket purchases available.
+Michael Smith, no ticket purchases available.
+Ted Jones, 3tickets bought for Table Tennis.
+---------------------------------------
+HOLIDAY RESORT MENU
+f - to finish running the program.
+a - to display on the screen information about all the activities.
+c - to display on the screen information about all the customers.
+t - to update the stored data when tickets are bought by one of the registered customers.
+r - to update the stored data when a registered customer cancels tickets for a booking.
+---------------------------------------
+Type a letter and press enter
+r
+Input purchasing customer name here.  To quit, enter 'f'
+3
+Please input the first and second name of customer.
+Input purchasing customer name here.  To quit, enter 'f'
+ajkwd
+Please input the first and second name of customer.
+Input purchasing customer name here.  To quit, enter 'f'
+Ted Jones
+Customer found on system.
+Ted Jones has tickets for:
+Table Tennis 3 tickets bought
+Enter the name of the activity you would like to return the ticket for.Enter 'f' to exit returns
+3
+Input is incorrect, please enter correct format.
+Ted Jones has tickets for:
+Table Tennis 3 tickets bought
+Enter the name of the activity you would like to return the ticket for.Enter 'f' to exit returns
+Ted James
+Input is incorrect, please enter correct format.
+Ted Jones has tickets for:
+Table Tennis 3 tickets bought
+Enter the name of the activity you would like to return the ticket for.Enter 'f' to exit returns
+Bowling
+Customer does not have any activity tickets
+Input is incorrect, please enter correct format.
+Ted Jones has tickets for:
+Table Tennis 3 tickets bought
+Enter the name of the activity you would like to return the ticket for.Enter 'f' to exit returns
+Table Tennis
+Enter the amount of activity tickets you would you like to return: or enter 'f' to quit returns
+w
+Please make sure the format is entered correctly.
+Enter the amount of activity tickets you would you like to return: or enter 'f' to quit returns
+9
+Please enter the correct amount of activity tickets to return
+Enter the amount of activity tickets you would you like to return: or enter 'f' to quit returns
+3
+Activity tickets have been successfully returned
+---------------------------------------
+HOLIDAY RESORT MENU
+f - to finish running the program.
+a - to display on the screen information about all the activities.
+c - to display on the screen information about all the customers.
+t - to update the stored data when tickets are bought by one of the registered customers.
+r - to update the stored data when a registered customer cancels tickets for a booking.
+---------------------------------------
+Type a letter and press enter
+a
+See information about all available activities below:
+Activity= Bowling. Available tickets: 8
+Activity= Cycling. Available tickets: 10
+Activity= Football. Available tickets: 22
+Activity= Hiking. Available tickets: 4
+Activity= Sailing. Available tickets: 3
+Activity= Table Tennis. Available tickets: 4
+---------------------------------------
+HOLIDAY RESORT MENU
+f - to finish running the program.
+a - to display on the screen information about all the activities.
+c - to display on the screen information about all the customers.
+t - to update the stored data when tickets are bought by one of the registered customers.
+r - to update the stored data when a registered customer cancels tickets for a booking.
+---------------------------------------
+Type a letter and press enter
+c
+
+Here is all the information about customers and what tickets they have bought.
+Anna Smith, no ticket purchases available.
+Michael Smith, no ticket purchases available.
+Ted Jones, no ticket purchases available.
+---------------------------------------
+HOLIDAY RESORT MENU
+f - to finish running the program.
+a - to display on the screen information about all the activities.
+c - to display on the screen information about all the customers.
+t - to update the stored data when tickets are bought by one of the registered customers.
+r - to update the stored data when a registered customer cancels tickets for a booking.
+---------------------------------------
+Type a letter and press enter
+f
+Program closing... Bye!
+
+Process finished with exit code 0
