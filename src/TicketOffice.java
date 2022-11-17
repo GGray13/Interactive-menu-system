@@ -1,3 +1,7 @@
+/*
+**Class purpose is to store tickets that are purchased for each activity
+*/
+
 public class TicketOffice implements Comparable<TicketOffice> {
 
     private Activity activity;
@@ -11,11 +15,13 @@ public class TicketOffice implements Comparable<TicketOffice> {
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return ticketsBought + "tickets bought for " + activity;
     }
 
-    public int compareTo(TicketOffice t) {
+    public int compareTo(TicketOffice t)
+    {
         int activityOrder = activity.compareTo(t.getActivity());
         if (activityOrder != 0)
             return activityOrder;
@@ -23,15 +29,18 @@ public class TicketOffice implements Comparable<TicketOffice> {
     }
 
     //Getters and setters
-    public Activity getActivity() {
+    public Activity getActivity()
+    {
         return this.activity;
     }
 
-    public int getTicketsBought() {
+    public int getTicketsBought()
+    {
         return this.ticketsBought;
     }
 
-    public void setTicketsBought(int i) {
+    public void setTicketsBought(int i)
+    {
         this.ticketsBought = i;
     }
 }
